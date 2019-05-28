@@ -1,0 +1,31 @@
+.square{
+    width: 100px;
+    height: 100px;
+    background-color: darkgray;
+    border: 1px solid black;
+    border-radius : 15px 80px;
+}
+.padding-10{
+    padding:10px
+}
+.border-box{
+    box-sizing: border-box;
+}
+
+.margin-100 {
+    margin: 100px;
+    /*오른쪽의 공간을 왼쪽으로 이동시키기에 오른쪽 정렬과 동일*/
+    /*margin-left:auto;*/
+
+    /*가운데 정렬*/
+    /*margin : auto;*/
+}
+.margin-top-100 {
+    margin-top: 100px;
+}
+
+.test{
+    margin: 25px 20px 10px 5px;
+    margin: 25px 25px 10px; /* t rl b */
+    margin: 25px 25px /* tb rl */
+}
