@@ -60,7 +60,7 @@ d-inline과 d-block으로 설정한다.
 
 아래의 부트스트랩 그리드 표는 공식 레퍼런스 Grid 섹션에서 확인가능하다.
 
-![](C:\Users\student\Desktop\invictus\TIL\images\bootstrap_grid.JPG)
+![](./images/bootstrap_grid.JPG)
 
 - 01_grid.html
 
