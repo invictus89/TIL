@@ -185,7 +185,7 @@ hidden : 공간은 차지하지만 보여주지는 않는다. (cf. display's non
 
 - big-box는 position이 relative이다.
 
-![css_position_ex](..\images\css_position_ex.JPG)
+![css_position_ex](.\images\css_position_ex.JPG)
 
 - GOLD는 브라우저를 기준으로 항상 right-bottom에 고정시키면 된다. 따라서 fixed로 설정!
 - RED는 absolute로 설정하여 relative로 설정된 big-box까지 찾아가고, right와bottom을 0px로 설정!
