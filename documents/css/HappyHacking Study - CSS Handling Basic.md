@@ -155,11 +155,56 @@ hidden : 공간은 차지하지만 보여주지는 않는다. (cf. display's non
 
 - 05_display.html
 
-static : 
+무엇을 기준으로 하느냐에 따라 위치가 달라지기에 쉽게 헷갈릴 수 있다. 아래 코드로 확인해보자
 
-relatvie : 자기 원래 위치를 기준으로 움직임, 이동하여도 이전 공간을 차지하고 있다.
+```html
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>BOX</title>
+      <link rel="stylesheet" href="06.css">
+  </head>
+  <body>
+      <div class="big-box">
+          <div class="small-box absolute-box" id="red"></div>
+          <div class="small-box fixed-box" id="gold"></div>
+          <div class="small-box absolute-box" id="green">
+            <div class="small-box relative-box" id="purple"></div>
+          </div>
+          <div class="small-box relative-box" id="blue">
+            <div class="small-box absolute-box" id="orange"></div>
+          </div>
+          <div class="small-box absolute-box" id="pink"></div>
+      </div>
+  </body>
+</html>
+```
 
-absolute :  static이 아닌 relative인 부모를 찾을 때까지 상위 이동 후 그 기준으로 위치 변경. 이것을 사용하려면 부모는 반드시 relative가 되어야 한다.
+- big-box는 position이 relative이다.
 
-fixed(고정 위치) : 보통 네비게이션 바
+![css_position_ex](C:\Users\student\Desktop\invictus\TIL\images\css_position_ex.JPG)
+
+- GOLD는 브라우저를 기준으로 항상 right-bottom에 고정시키면 된다. 따라서 fixed로 설정!
+- RED는 absolute로 설정하여 relative로 설정된 big-box까지 찾아가고, right와bottom을 0px로 설정!
+- GREEN도 RED와 동일하다. 단지 top과 left를 200px로 설정한다.
+- BLUE는 기본 위치가 상단왼쪽이다. 이 기준으로 top과 left를 100px로 설정하면 되기에 relative로 설정!
+- PINK는 RED와 같이 relative 설정인 부모요소에서 top과 left가 0px이면 된다. 따라서 absolute로 설정!
+- PURPLE은 그린의 자식이기에 기본적으로 그린의 위치와 겹친다. 여기서 left와 top을 100px씩 지정하면 되므로 relative
+- ORANGE는 relative로 설정된 부모요소인 blue의 기준에서 top:-100px, left:100px이면 되므로 absolute로!
+
+위를 요약하면 아래와 같다.
+
+**relative는 본인 요소의 기준으로 이동하고, absolute는 부모 요소가 static이 아닌 relative인 요소까지 찾아 올라가  이를 기준으로 이동한다.  fixed는 브라우저를 기준으로 한다.** 
+
+
+
+## Reference
+
+- http://www.html5test.com/> : 해당 브라우저가 지원하는 HTML을 확인할 수 있다.
+- [https://caniuse.com](https://caniuse.com/) : 내가 사용하는 CSS가 어디까지 지원하는지 확인할 수 있다.
+- <https://htmlcolorcodes.com/> CSS Color 확인
+- https://www.w3.org/TR/css-color-3/
 
