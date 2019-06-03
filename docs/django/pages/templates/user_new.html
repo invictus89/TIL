@@ -1,0 +1,12 @@
+
+{% extends 'base.html'%}
+{% block content %}
+<h1> USER_NEW </h1>
+<form action="/pages/user-create/" method="POST">
+    {% csrf_token %}
+    name : <input type="text" name="name">
+    pwd : <input type="password" name="pwd">
+    <input type="submit" value="send">
+</form>
+{% endblock %}
+
