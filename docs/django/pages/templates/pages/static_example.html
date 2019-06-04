@@ -1,0 +1,11 @@
+<!--extends 는 항상 최상단에 있어야 한다. -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'pages/stylesheets/style.css' %}">
+{% endblock css %}
+{% block content %}
+<h1>static file example</h1>
+<img src="{% static 'pages/images/apple.png' %}" alt="">
+{% endblock content %}

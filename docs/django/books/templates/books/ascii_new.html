@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+   <h1>ascii 만들기</h1>
+<form action="/books/ascii-make/">
+   <input type="text" name="ascii">
+   <select name="font">
+      <option value="short">short</option>
+      <option value="utopia">utopia</option>
+      <option value="rounded">rounded</option>
+      <option value="acrobatic">acrobatic</option>
+      <option value="alligator">alligator</option>
+   </select>
+   <input type="submit" value="send">
+</form>
+{% endblock %}

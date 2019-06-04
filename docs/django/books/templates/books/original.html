@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+   <h1>파파고 번역기 텍스트 입력하기</h1>
+   <form action="/books/translated/" method="GET">
+      <input type="text" name="papago_text">
+      <input type="submit" value="send">
+   </form>
+{% endblock %}
