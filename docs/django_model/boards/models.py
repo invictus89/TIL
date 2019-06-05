@@ -8,3 +8,6 @@ class Board(models.Model):
     # auto_now_add : 생성일자 / DB 가 최초 저장시에만 적용
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.id}글 - {self.title}: {self.content}'

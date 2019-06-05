@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>index.html</h1>
+{% for board in boards %}
+   {{ board.id }} /
+   {{ board.title }} /
+   {{ board.content }} /
+   <a href="/boards/index/{{ board.pk }}">{{ board.pk }} 번째 게시글로 이동</a><br>
+{% endfor %}
+{% endblock %}
+
+
+
