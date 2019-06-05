@@ -19,6 +19,7 @@ from django.urls import path, include
 urlpatterns = [
     # 사용자가 pages 경로로 접근하면 pages.urls로 보낸다.
     # Root URL 이 pages.urls를 바라보아야 한다.!!
+    path('books/', include('books.urls')),
     path('pages/', include('pages.urls')),
     path('admin/', admin.site.urls),
 ]
