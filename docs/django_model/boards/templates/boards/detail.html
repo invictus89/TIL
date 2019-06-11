@@ -1,5 +1,34 @@
 <h1>DETAIL</h1>
-{{ board.pk }} 번재 글 <br>
+<H2>{{ board.pk }} 번재 글</H2>
 <hr>
 <p>제목 : {{ board.title }}</p>
 <p>본문 : {{ board.content }}</p>
+<a href="{% url 'boards:update' board.pk %}">EDIT</a>
+<form action="{% url 'boards:delete' board.pk %}" method="POST" >
+    {% csrf_token %}
+    <input type="submit" value="delete">
+</form>
+<hr>
+<h2>댓글 입력하기</h2>
+<form action="{% url 'boards:comments_create' board.pk %}" method="POST">
+    {% csrf_token %}
+    <label for="content">comment</label>
+    <input type="text" id="content" name="content">
+    <input type="submit" value="send">
+</form>
+<hr>
+<H2>댓글 목록보기 [{{ comments | length }}]</H2>
+<!--<H2>댓글 목록보기 [{{ comments.count }}]</H2>-->
+{% for comment in comments %}
+    <li>
+        {{ comment.content }}
+        <form action="{% url 'boards:comments_delete' board.pk comment.pk %}" method="POST" style="display:inline">
+            {% csrf_token %}
+            <input type="submit" value="삭제하기">
+        </form>
+    </li>
+{% empty %}
+<p> 댓글이 없습니다. </p>
+{% endfor %}
+<hr>
+<a href="{% url 'boards:index' %}">MAIN PAGE</a>

@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>create.html</h1>
-<h2>{{ str }}</h2><br>
-<a href="boards/new/">go back</a>
+<h1> NEW.HTML </h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="title">TITLE</label>
+    <input type="text" name="title" id="title"><br>
+    <label for="content">CONTENT</label>
+    <textarea name="content" id="content" cols="30" rows="10"></textarea><br>
+    <input type="submit" value="click">
+</form>
 {% endblock %}

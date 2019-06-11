@@ -5,7 +5,7 @@
    {{ board.id }} /
    {{ board.title }} /
    {{ board.content }} /
-   <a href="/boards/index/{{ board.pk }}">{{ board.pk }} 번째 게시글로 이동</a><br>
+   <a href="{% url 'boards:detail' board.pk %}">{{ board.pk }} 번째 게시글로 이동</a><br>
 {% endfor %}
 {% endblock %}
 
