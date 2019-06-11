@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    img {
+        width:30%;
+    }
+</style>
+<h1> 영화 정보 수정 </h1>
+<form action="{% url 'update' movie.pk %}" method="POST">
+    {% csrf_token %}
+    <label for="title">TITLE</label><br>
+    <input type="text" id="title" name="title" value="{{ movie.title }}"><br>
+
+    <label for="genre">genre</label><br>
+    <select name="genre">
+        {% for genre in genres %}
+        <option value="{{ genre.name }}">{{ genre.name }}</option>
+        {% endfor %}
+    </select><br>
+
+    <label for="score">score</label><br>
+    <input type="number" id="score" name="score" value="{{ movie.score }}" placeholder="0.0~5.0(0.5간격)"><br>
+
+    <label for="audience">audience</label><br>
+    <input type="text" id="audience" name="audience" value="{{ movie.audience }}"><br>
+
+    <label for="poster_url">poster_url</label><br>
+    <input type="text" id="poster_url" name="poster_url" value="{{ movie.poster_url }}"><br>
+
+    <label for="description">description</label><br>
+    <textarea name="description" id="description" cols="30" rows="10"> {{ movie.description }}</textarea><br>
+
+    <input type="submit" value="수정하기">
+</form>
+{% endblock %}

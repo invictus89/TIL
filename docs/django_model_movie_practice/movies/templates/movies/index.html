@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>영화 목록 페이지 입니다.</h2>
+{% for movie in movies %}
+<a href="{% url 'detail' movie.pk %}">{{ movie.title }}<br></a>
+{{ movie.description }}<br>
+<img src="{{ movie.poster_url }}" alt="{{ movie.title }}">
+<br>
+<br>
+{% endfor %}
+{% endblock %}
