@@ -1,0 +1,20 @@
+{% extends 'boards/base.html' %}
+{% block content %}
+  <h1>DETAIL</h1>
+  <hr>
+  <p>작성자 : {{ board.user.username }}</P>
+  <p>번호 : {{ board.pk }}</p>
+  <p>제목 : {{ board.title }}</p>
+  <p>내용 : {{ board.content }}</p>
+  <p>생성 시각 : {{ board.created_at }}</p>
+  <p>수정 시각 : {{ board.updated_at }}</p>
+    {% if user == board.user or user.username == "admin" %}
+    <a href={% url 'boards:update' board.pk %}>수정</a>
+    <form action="{% url 'boards:delete' board.pk %}" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="삭제">
+    </form>
+    {% endif %}
+  <a href="{% url 'boards:index' %}">[back]</a>
+  <hr>
+{% endblock  %}

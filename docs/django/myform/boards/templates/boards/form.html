@@ -1,0 +1,20 @@
+{% extends 'boards/base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<!-- 요청 정보가 create 이면 create로 update 이면 update로 ! -->
+{% if request.resolver_match.url_name == 'create'%}
+  <h1>CREATE</h1>
+{% else %}
+  <h1> UPDATE </h1>
+{% endif %}
+  <form action="" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons submit='OK' reset="Cancel" %}{% endbuttons %}
+  </form>
+{% if request.resolver_match.url_name == 'create'%}
+  <a href="{% url 'boards:index' %}"> 뒤로 가기 </a>
+{% else %}
+   <a href="{% url 'boards:detail' board.pk %}"> 뒤로 가기 </a>
+{% endif %}
+{% endblock  %}

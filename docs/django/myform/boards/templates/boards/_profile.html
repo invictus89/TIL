@@ -1,0 +1,16 @@
+<div class="jumbotron text-center text-white bg-dark">
+  <p class="lead">작성자 정보</p>
+  <h1 class="display-4">{{ board.user }}</h1>
+  <hr class="my-4 border-white">
+  <p class="lead">
+    팔로잉 : {{ person.followings.all|length }} / 팔로워 : {{ person.followers.all|length }}
+  </p>
+  <!-- 내 자신은 팔로잉 할 수 없다.-->
+  {% if request.user != person %}
+    {% if request.user in person.followers.all %}
+      <a class="btn btn-primary btn-lg" href= "{% url 'boards:follow' board.pk person.pk %}" >unfollow</a>
+    {% else %}
+      <a class="btn btn-primary btn-lg" href= "{% url 'boards:follow' board.pk person.pk %}" >follow</a>
+    {% endif %}
+  {% endif %}
+</div>
